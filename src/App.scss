@@ -1,0 +1,54 @@
+.App {
+    text-align: center;
+    background-color: #d5d6cd;
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+.App-header {
+    background-color: #b5c6e9;
+    height: 10vh;
+    width: 100%;
+    // font-size: calc(10px + 2vmin);
+    padding-bottom: 3rem;
+    font-size: 28px;
+    color: rgb(122, 122, 122);
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+main {
+    min-width: 70vw;
+    min-height: 90vh;
+    border: black solid 2px;
+    margin: 3rem 0 3rem 0;
+}
+
+[id*="area"] {
+    border: black solid 2px;
+    min-height: 10vh;
+    min-width: 100%;
+}
+
+#input-area {
+    height: 15vh;
+}
+
+#open-task-area {
+    height: 50vh;
+}
+
+#finished-task-area {
+    height: 30vh;
+}
