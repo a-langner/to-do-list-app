@@ -22,6 +22,7 @@
     padding-bottom: 3rem;
     font-size: 28px;
     color: rgb(122, 122, 122);
+    border-bottom: 2px solid rgb(122, 122, 122);
 }
 
 .App-link {
@@ -31,13 +32,14 @@
 main {
     min-width: 70vw;
     min-height: 90vh;
-    border: black solid 2px;
+    border: black solid 3px;
+    border-radius: 10px;
     margin: 3rem 0 3rem 0;
     background-color: #c8c9c7;
 }
 
 [id*="Area"] {
-    border: black solid 2px;
+    // border: black solid 2px;
     min-height: 10vh;
     min-width: 100%;
 }
@@ -45,41 +47,14 @@ main {
 #InputArea {
     height: auto;
     padding: 1.5rem 0;
+    border-bottom: black solid 3px;
 }
 
 #OpenTaskArea {
     height: 50vh;
+    border-bottom: black solid 3px;
 }
 
 #FinishedTaskArea {
     height: 30vh;
 }
-
-
-
-// Checkbox::after
-
-.CheckBox {
-    display: inline-flex;
-    align-items: center;
-}
-  /* Hide the real input element */
-.CheckBox input {
-    display: none;
-}
-.CheckBox .FakeInput {
-    display: inline-block;
-    border: 2px solid rgb(43, 43, 43);
-    border-radius: 50%;
-    width: 1em;
-    height: 1em;
-    // background: radial-gradient(circle, rgb(136, 0, 0)  0%, rgb(185, 0, 0) 50%, rgba(255,0,0,1) 100%);
-    background: radial-gradient(circle, rgb(255, 26, 26) 0%, rgb(126, 0, 0) 100%);
-}
-.CheckBox input:checked + .FakeInput {
-    // background: radial-gradient(circle, rgba(136,255,0,1) 0%, rgba(27,138,0,1) 50%, rgba(39,73,0,1) 100%);
-    background: radial-gradient(circle, rgb(112, 209, 0) 0%, rgba(39,73,0,1) 100%);
-}
-// .CheckBox input:checked + .FakeInput {
-//     background-color: red;
-// }
