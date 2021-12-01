@@ -1,18 +1,18 @@
 import './App.scss';
+import Header from "./components/Header";
+import InputArea from "./components/InputArea";
+import OpenTaskArea from "./components/OpenTaskArea";
+import FinishedTaskArea from "./components/FinishedTaskArea";
+
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <h1>To-Do List App</h1>
-            </header>
+            <Header />
             <main>
-                <div id="input-area">test
-                </div>
-                <div id="open-task-area">test
-                </div>
-                <div id="finished-task-area">test
-                </div>
+                <InputArea />
+                <OpenTaskArea />
+                <FinishedTaskArea />
             </main>
         </div>
     );
