@@ -1,8 +1,8 @@
 const Header = () => {
     return (
         <header className="App-header">
-        <h1>To-Do List App</h1>
-    </header>
+            <h1>To-Do List App</h1>
+        </header>
     );
 };
 

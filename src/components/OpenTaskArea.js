@@ -1,6 +1,9 @@
+import TaskBox from "./TaskBox";
+
 const OpenTaskArea = () => {
     return (
-        <div id="OpenTaskArea">test
+        <div id="OpenTaskArea">
+            <TaskBox />
         </div>
     );
 };
