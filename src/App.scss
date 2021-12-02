@@ -9,10 +9,10 @@
     justify-content: center;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
+// .App-logo {
+//     height: 40vmin;
+//     pointer-events: none;
+// }
 
 .App-header {
     background-color: #b5c6e9;
@@ -22,7 +22,9 @@
     padding-bottom: 3rem;
     font-size: 28px;
     color: rgb(122, 122, 122);
-    border-bottom: 2px solid rgb(122, 122, 122);
+    text-shadow: 0 0 2px rgb(0, 0, 0);
+    -webkit-text-stroke: 2px black;
+    border-bottom: 3px solid rgb(122, 122, 122);
 }
 
 .App-link {

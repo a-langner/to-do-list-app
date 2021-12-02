@@ -1,9 +1,10 @@
-import TaskBox from "./TaskBox";
+import TaskEntry from "./TaskEntry";
 
-const OpenTaskArea = () => {
+const OpenTaskArea = (props) => {
     return (
         <div id="OpenTaskArea">
-            <TaskBox />
+            {/* <TaskEntry taskName={props.taskName}/> */}
+            {props.todos.map((todo, index) => (<TaskEntry todo={todo} ID={index} key={index}/>))}
         </div>
     );
 };
