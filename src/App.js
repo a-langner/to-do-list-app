@@ -7,14 +7,9 @@ import FinishedTaskArea from "./components/FinishedTaskArea";
 
 
 function App() {
-    const [newTask, setTask] = useState("Test");
-
-    const addTodo = (name) => {
-        setTask(name);
-    };
-
-    const toDoArray = [
+    const testArray = [
         {
+            id: 0,
             name: "Atmen",
             details: "bla bla bla",
             endDate: "000",
@@ -24,6 +19,7 @@ function App() {
             done: false
         },
         {
+            id: 1,
             name: "Schlafen",
             details: "bla bla bla",
             endDate: "000",
@@ -33,6 +29,7 @@ function App() {
             done: false
         },
         {
+            id: 2,
             name: "Zellteilung",
             details: "bla bla bla",
             endDate: "000",
@@ -42,16 +39,28 @@ function App() {
             done: true
         }
     ];
+
+    const [toDoArray, setToDoArray] = useState(testArray);
+
+    const addTodo = (newTask) => {
+        setToDoArray([...toDoArray, newTask]);
+    };
+
+    const toggle = (changedTask) => {
+        // for (i = 0; i < toDoArray.length, i++)
+        console.log("test");
+    }
+
     const openTodos = toDoArray.filter(todo => !todo.done);
     const doneTodos = toDoArray.filter(todo => todo.done);
+
 
     return (
         <div className="App">
             <Header />
             <main>
-                <InputArea onButton={addTodo}/>
-                {/* <OpenTaskArea taskName={newTask}/> */}
-                <OpenTaskArea todos={openTodos}/>
+                <InputArea onButton={addTodo} id={toDoArray.length}/>
+                <OpenTaskArea todos={openTodos} onClick={toggle}/>
                 <FinishedTaskArea todos={doneTodos}/>
             </main>
         </div>

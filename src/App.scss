@@ -53,10 +53,12 @@ main {
 }
 
 #OpenTaskArea {
-    height: 50vh;
+    min-height: 50vh;
+    height: auto;
     border-bottom: black solid 3px;
 }
 
 #FinishedTaskArea {
-    height: 30vh;
+    min-height: 30vh;
+    height: auto;
 }

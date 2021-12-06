@@ -4,7 +4,7 @@ const OpenTaskArea = (props) => {
     return (
         <div id="OpenTaskArea">
             {/* <TaskEntry taskName={props.taskName}/> */}
-            {props.todos.map((todo, index) => (<TaskEntry todo={todo} ID={index} key={index}/>))}
+            {props.todos.map((todo, index) => (<TaskEntry todo={todo} id={todo.id} key={index} onClick={props.onClick} />))}
         </div>
     );
 };
