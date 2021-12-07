@@ -1,25 +1,31 @@
 import "../SCSS/CheckBox.scss";
 import React, { useState } from 'react';
 
-const CheckBox = (props) => {
-    // console.log(key);
-    const [checkBox, setCheckBox] = useState(props.done);
+// const CheckBox = (props) => {
+const CheckBox = ({currentToDos, toDoArray, setToDoArray}) => {
 
-    const switchCheckBox = (props) => {
-        setCheckBox(!checkBox);
-        // props.todo.done = checkBox;
-        // console.log(props);
+    let {id, done} = currentToDos;
+
+    const switchCheckBox = () => {
+        setToDoArray(
+            toDoArray.map(item => {
+                if (item.id === id) {
+                    return {...item, done: !done}
+                }
+            return item;
+            })
+        )
     };
+
 
     return (
         <div>
-            <label class="CheckBox" >
-                <input type="checkbox" id={`checkBox${props.id}`} name={`checkBox${props.id}`} onClick={switchCheckBox} defaultChecked={checkBox}/>
-                <span class="FakeInput"></span>
+            <label className="CheckBox" >
+                <input type="checkbox" id={`checkBox${id}`} name={`checkBox${id}`} onChange={switchCheckBox} checked={done}/>
+                <span className="FakeInput"></span>
                 {/* <span>Finished</span> */}
             </label>
-            <label for={`checkBox${props.id}`} class="checkBoxLabel">{checkBox ? "Finished" : "Unfinished"}</label>
-            {/* {console.log(props.onClick)} */}
+            <label htmlFor={`checkBox${id}`} className="checkBoxLabel">{done ? "Finished" : "Unfinished"}</label>
         </div>
     );
 };

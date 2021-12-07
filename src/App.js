@@ -46,11 +46,6 @@ function App() {
         setToDoArray([...toDoArray, newTask]);
     };
 
-    const toggle = (changedTask) => {
-        // for (i = 0; i < toDoArray.length, i++)
-        console.log("test");
-    }
-
     const openTodos = toDoArray.filter(todo => !todo.done);
     const doneTodos = toDoArray.filter(todo => todo.done);
 
@@ -60,8 +55,8 @@ function App() {
             <Header />
             <main>
                 <InputArea onButton={addTodo} id={toDoArray.length}/>
-                <OpenTaskArea todos={openTodos} onClick={toggle}/>
-                <FinishedTaskArea todos={doneTodos}/>
+                <OpenTaskArea currentToDos={openTodos} toDoArray={toDoArray} setToDoArray={setToDoArray}/>
+                <FinishedTaskArea currentToDos={doneTodos} toDoArray={toDoArray} setToDoArray={setToDoArray}/>
             </main>
         </div>
     );

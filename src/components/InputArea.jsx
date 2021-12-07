@@ -21,19 +21,19 @@ const InputArea = (props) => {
     return (
         <div id="InputArea">
             <form action="getform.php" method="get">
-                <div class="fieldWrapper">
-                    <label for="name" class="form-label">Task Name:</label>
+                <div className="fieldWrapper">
+                    <label htmlFor="name" className="form-label">Task Name:</label>
                     <input type="text" id="name" name="name" onChange={changeHandler} value={newTask.name} /><br />
                 </div>
-                <div class="fieldWrapper">
-                    <label for="details" class="form-label">Details / Description:</label>
+                <div className="fieldWrapper">
+                    <label htmlFor="details" className="form-label">Details / Description:</label>
                     <textarea id="details" name="details" cols="35" rows="4" onChange={changeHandler} value={newTask.details}></textarea>
                 </div>
-                <div class="fieldWrapper">
-                    <label for="finalDateInput" class="form-label">Final Date:</label>
+                <div className="fieldWrapper">
+                    <label htmlFor="finalDateInput" className="form-label">Final Date:</label>
                     <input type="date" id="finalDateInput" name="finalDateInput" /><br />
                 </div>
-                <div class="fieldWrapper">
+                <div className="fieldWrapper">
                     <input type="submit" value="Save Task" onClick={sendData}/>
                 </div>
             </form>

@@ -62,3 +62,11 @@ main {
     min-height: 30vh;
     height: auto;
 }
+
+#InputArea > form > div > label {
+    margin-right: 0.8rem;
+}
+
+#InputArea > form > div {
+    margin-bottom: 0.5rem;
+}
