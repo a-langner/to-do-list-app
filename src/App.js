@@ -1,5 +1,5 @@
 import './App.scss';
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
 import Header from "./components/Header";
 import InputArea from "./components/InputArea";
 import OpenTaskArea from "./components/OpenTaskArea";
@@ -40,11 +40,40 @@ function App() {
         }
     ];
 
-    const [toDoArray, setToDoArray] = useState(testArray);
+
+    const toDoArrayReducer = (originalArray, action) => {
+        switch (action.type) {
+            case "add":
+                const addArray = [...originalArray];
+                return [...addArray, action.newTask];
+                break
+        
+            case "remove":
+                const removeArray = [...originalArray];
+                return removeArray.filter(item => item.id !== action.id)
+                break;
+
+            case "toggle":
+                const toggleArray = [...originalArray];
+                return toggleArray.map(item => {
+                    if (item.id === action.id) {
+                        return {...item, done: !action.done}
+                    }
+                return item;})
+                break;
+          
+            default:
+                return originalArray
+                break;
+        }
+    }
+
+    const [toDoArray, dispatchToDoArray] = useReducer(toDoArrayReducer ,testArray);
 
     const addTodo = (newTask) => {
-        setToDoArray([...toDoArray, newTask]);
+        dispatchToDoArray({type: "add", newTask: newTask})
     };
+
 
     const openTodos = toDoArray.filter(todo => !todo.done);
     const doneTodos = toDoArray.filter(todo => todo.done);
@@ -55,8 +84,8 @@ function App() {
             <Header />
             <main>
                 <InputArea onButton={addTodo} id={toDoArray.length}/>
-                <OpenTaskArea currentToDos={openTodos} toDoArray={toDoArray} setToDoArray={setToDoArray}/>
-                <FinishedTaskArea currentToDos={doneTodos} toDoArray={toDoArray} setToDoArray={setToDoArray}/>
+                <OpenTaskArea currentToDos={openTodos} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>
+                <FinishedTaskArea currentToDos={doneTodos} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>
             </main>
         </div>
     );
