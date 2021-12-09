@@ -1,14 +1,19 @@
 import { useState } from 'react';
 
 const InputArea = (props) => {
-    const [id, setId] = useState(props.id);
-    const [newTask, setNewTask] = useState({id: id, name: "", details: "", endDate: "", urgency: "", color: "", icon: "", done: false});
+    // const [id, setId] = useState(props.nextId);
+    const [newTask, setNewTask] = useState({id: Date.now(), name: "", details: "", finalDate: "", urgency: "", color: "", icon: "", done: false});
 
     const sendData = (event) => {
         event.preventDefault();
-        props.onButton(newTask);
-        setNewTask({id: id +1, name: "", details: "", endDate: "", urgency: "", color: "", icon: "", done: false});
-        setId(id + 1);
+        const dateFormat = [...newTask.finalDate.split("-").reverse()].join(".");
+        const id = Date.now();
+        const finalUpdate = {...newTask};
+        finalUpdate.finalDate = dateFormat;
+        finalUpdate.id = id;
+        // setNewTask(finalUpdate);
+        props.onButton(finalUpdate);
+        setNewTask({id: Date.now(), name: "", details: "", finalDate: "", urgency: "", color: "", icon: "", done: false});
     };
 
     const changeHandler = (event) => {
@@ -30,8 +35,19 @@ const InputArea = (props) => {
                     <textarea id="details" name="details" cols="35" rows="4" onChange={changeHandler} value={newTask.details}></textarea>
                 </div>
                 <div className="fieldWrapper">
-                    <label htmlFor="finalDateInput" className="form-label">Final Date:</label>
-                    <input type="date" id="finalDateInput" name="finalDateInput" /><br />
+                    <label htmlFor="finalDate" className="form-label">Final Date:</label>
+                    <input type="date" id="finalDateInput" name="finalDate" onChange={changeHandler} 
+                    // value={newTask.finalDate}
+                    /><br />
+                </div>
+                <div>
+                <label htmlFor="urgency" className="form-label prioMedium">Urgency:</label>
+                    <select name="urgency" id="urgencyInput" className="prioMedium">
+                        <option className="prioNormal" value="normal" selected>normal</option>
+                        <option className="prioMedium" value="medium">medium</option>
+                        <option className="prioHigh" value="high">high</option>
+                        <option className="prioVeryHigh" value="very high">very high</option>
+                    </select>
                 </div>
                 <div className="fieldWrapper">
                     <input type="submit" value="Save Task" onClick={sendData}/>

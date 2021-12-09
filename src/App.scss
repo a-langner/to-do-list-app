@@ -35,7 +35,7 @@ main {
     min-width: 70vw;
     min-height: 90vh;
     border: black solid 3px;
-    border-radius: 10px;
+    border-radius: 18px;
     margin: 3rem 0 3rem 0;
     background-color: #c8c9c7;
 }
@@ -69,4 +69,17 @@ main {
 
 #InputArea > form > div {
     margin-bottom: 0.5rem;
+}
+
+.prioMedium {
+    background-color: yellow !important;
+    color: red;
+}
+
+.prioHigh{
+    background-color: orange !important;
+}
+
+.prioVeryHigh{
+    background-color: red !important;
 }

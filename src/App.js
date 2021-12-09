@@ -11,8 +11,8 @@ function App() {
         {
             id: 0,
             name: "Atmen",
-            details: "bla bla bla",
-            endDate: "000",
+            details: "nicht vergessen",
+            finalDate: "01.01.2501",
             urgency: "red",
             color: "blue",
             icon: "GiBurningSkull",
@@ -21,8 +21,8 @@ function App() {
         {
             id: 1,
             name: "Schlafen",
-            details: "bla bla bla",
-            endDate: "000",
+            details: "kann nicht schaden",
+            finalDate: "",
             urgency: "yellow",
             color: "green",
             icon: "GiBurningSkull",
@@ -32,7 +32,7 @@ function App() {
             id: 2,
             name: "Zellteilung",
             details: "bla bla bla",
-            endDate: "000",
+            finalDate: "01.01.2501",
             urgency: "orange",
             color: "white",
             icon: "GiBurningSkull",
@@ -71,7 +71,7 @@ function App() {
     const [toDoArray, dispatchToDoArray] = useReducer(toDoArrayReducer ,testArray);
 
     const addTodo = (newTask) => {
-        dispatchToDoArray({type: "add", newTask: newTask})
+        dispatchToDoArray({type: "add", newTask: newTask});
     };
 
 
@@ -83,7 +83,7 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <InputArea onButton={addTodo} id={toDoArray.length}/>
+                <InputArea onButton={addTodo}/>
                 <OpenTaskArea currentToDos={openTodos} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>
                 <FinishedTaskArea currentToDos={doneTodos} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>
             </main>
