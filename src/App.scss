@@ -71,15 +71,56 @@ main {
     margin-bottom: 0.5rem;
 }
 
-.prioMedium {
-    background-color: yellow !important;
-    color: red;
+.low{
+    background-color: lightgray;
 }
-
-.prioHigh{
+.medium {
+    background-color: yellow !important;
+}
+.high{
     background-color: orange !important;
 }
-
-.prioVeryHigh{
+.very-high{
     background-color: red !important;
+}
+
+#prioSelectDisplay,
+#colorSelectDisplay {
+    min-width: 12px;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.grey {
+    background-color: lightgray;
+}
+.blue {
+    background-color: blue;
+}
+.green {
+    background-color: green;
+}
+.turquoise {
+    background-color: turquoise;
+}
+.purple {
+    background-color: purple;
+}
+.pink {
+    background-color: pink;
+}
+.red {
+    background-color: red;
+}
+.orange {
+    background-color: orange;
+}
+.yellow {
+    background-color: yellow;
 }

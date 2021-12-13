@@ -13,7 +13,7 @@ function App() {
             name: "Atmen",
             details: "nicht vergessen",
             finalDate: "01.01.2501",
-            urgency: "red",
+            urgency: "high",
             color: "blue",
             icon: "GiBurningSkull",
             done: false
@@ -23,7 +23,7 @@ function App() {
             name: "Schlafen",
             details: "kann nicht schaden",
             finalDate: "",
-            urgency: "yellow",
+            urgency: "low",
             color: "green",
             icon: "GiBurningSkull",
             done: false
@@ -33,7 +33,7 @@ function App() {
             name: "Zellteilung",
             details: "bla bla bla",
             finalDate: "01.01.2501",
-            urgency: "orange",
+            urgency: "medium",
             color: "white",
             icon: "GiBurningSkull",
             done: true

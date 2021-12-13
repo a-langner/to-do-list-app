@@ -2,7 +2,8 @@ import { useState } from 'react';
 
 const InputArea = (props) => {
     // const [id, setId] = useState(props.nextId);
-    const [newTask, setNewTask] = useState({id: Date.now(), name: "", details: "", finalDate: "", urgency: "", color: "", icon: "", done: false});
+    const [newTask, setNewTask] = useState({id: Date.now(), name: "", details: "", finalDate: "", urgency: "low", color: "grey", icon: "", done: false});
+    // const [urgencyState, setUrgencyState] = useState(newTask.urgency);
 
     const sendData = (event) => {
         event.preventDefault();
@@ -13,7 +14,7 @@ const InputArea = (props) => {
         finalUpdate.id = id;
         // setNewTask(finalUpdate);
         props.onButton(finalUpdate);
-        setNewTask({id: Date.now(), name: "", details: "", finalDate: "", urgency: "", color: "", icon: "", done: false});
+        setNewTask({id: Date.now(), name: "", details: "", finalDate: "", urgency: "low", color: "grey", icon: "", done: false});
     };
 
     const changeHandler = (event) => {
@@ -41,13 +42,29 @@ const InputArea = (props) => {
                     /><br />
                 </div>
                 <div>
-                <label htmlFor="urgency" className="form-label prioMedium">Urgency:</label>
-                    <select name="urgency" id="urgencyInput" className="prioMedium">
-                        <option className="prioNormal" value="normal" selected>normal</option>
-                        <option className="prioMedium" value="medium">medium</option>
-                        <option className="prioHigh" value="high">high</option>
-                        <option className="prioVeryHigh" value="very high">very high</option>
+                    <label htmlFor="urgency" className="form-label">Urgency:</label>
+                    <select name="urgency" onChange={changeHandler} id="urgencyInput" className={newTask.urgency}>
+                        <option className="low" value="low">low</option>
+                        <option className="medium" value="medium">medium</option>
+                        <option className="high" value="high">high</option>
+                        <option className="very-high" value="very-high">very high</option>
                     </select>
+                    <div htmlFor="urgency" id="prioSelectDisplay"className={newTask.urgency}></div>
+                </div>
+                <div>
+                    <label htmlFor="color" className="form-label">Color category:</label>
+                    <select name="color" onChange={changeHandler} id="colorInput" className={newTask.color}>
+                        <option className="grey" value="grey">grey</option>
+                        <option className="blue" value="blue">blue</option>
+                        <option className="green" value="green">green</option>
+                        <option className="turquoise" value="turquoise">turquoise</option>
+                        <option className="purple" value="purple">purple</option>
+                        <option className="pink" value="pink">pink</option>
+                        <option className="red" value="red">red</option>
+                        <option className="orange" value="orange">orange</option>
+                        <option className="yellow" value="yellow">yellow</option>
+                    </select>
+                    <div htmlFor="color" id="colorSelectDisplay"className={newTask.color}></div>
                 </div>
                 <div className="fieldWrapper">
                     <input type="submit" value="Save Task" onClick={sendData}/>
