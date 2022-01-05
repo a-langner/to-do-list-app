@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { Link, Routes, Route, Navigate } from "react-router-dom";
+import Edit from "./Edit";
 
 const InputArea = (props) => {
     // const [id, setId] = useState(props.nextId);
@@ -22,6 +24,10 @@ const InputArea = (props) => {
         const newObject = {...newTask};
         newObject[event.target.name] = input;
         setNewTask(newObject);
+    };
+
+    const editCategories = (event) => {
+        // event.preventDefault();
     };
 
     return (
@@ -55,6 +61,7 @@ const InputArea = (props) => {
                     <label htmlFor="color" className="form-label">Color category:</label>
                     <select name="color" onChange={changeHandler} id="colorInput" className={newTask.color}>
                         <option className="grey" value="grey">grey</option>
+                        <option className="white" value="white">white</option>
                         <option className="blue" value="blue">blue</option>
                         <option className="green" value="green">green</option>
                         <option className="turquoise" value="turquoise">turquoise</option>
@@ -68,6 +75,12 @@ const InputArea = (props) => {
                 </div>
                 <div className="fieldWrapper">
                     <input type="submit" value="Save Task" onClick={sendData}/>
+                    <nav>
+                        <Link to="/edit" >
+                            <button onClick={editCategories}>Edit Color Categories</button>
+                        </Link>
+                    </nav>
+
                 </div>
             </form>
         </div>

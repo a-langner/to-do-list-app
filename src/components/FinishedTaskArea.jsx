@@ -1,9 +1,9 @@
 import TaskEntry from "./TaskEntry";
 
-const FinishedTaskArea = (props) => {
+const FinishedTaskArea = ({ currentToDos, toDoArray, dispatchToDoArray}) => {
     return (
         <div id="FinishedTaskArea">
-            {props.currentToDos.map((currentToDos, index) => (<TaskEntry currentToDos={currentToDos} key={index} toDoArray={props.toDoArray} dispatchToDoArray={props.dispatchToDoArray}/>))}
+            {currentToDos.map((singleToDo, index) => (<TaskEntry singleToDo={singleToDo} key={index} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>))}
         </div>
     );
 };
