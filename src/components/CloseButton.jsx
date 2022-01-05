@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react"
 
-function CloseButton({currentToDos, toDoArray, dispatchToDoArray}) {
+function CloseButton({singleToDo, toDoArray, dispatchToDoArray}) {
     return (
-        <div id={`close${currentToDos.id}`} className="arrow-t-b" onClick={() => dispatchToDoArray({type: 'remove', id: currentToDos.id})}>
+        <div id={`close${singleToDo.id}`} className="arrow-t-b" onClick={() => dispatchToDoArray({type: "remove", id: singleToDo.id})}>
             Close
             <div className="arrow-l-r"> </div>
         </div>

@@ -1,9 +1,10 @@
 import TaskEntry from "./TaskEntry";
 
-const OpenTaskArea = (props) => {
+const OpenTaskArea = ({ currentToDos, toDoArray, dispatchToDoArray}) => {
+    // {console.log(props)}
     return (
         <div id="OpenTaskArea">
-            {props.currentToDos.map((currentToDos, index) => (<TaskEntry currentToDos={currentToDos} key={index} toDoArray={props.toDoArray} dispatchToDoArray={props.dispatchToDoArray}/>))}
+            {currentToDos.map((singleToDo, index) => (<TaskEntry singleToDo={singleToDo} key={index} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>))}
         </div>
     );
 };

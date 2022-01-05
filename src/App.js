@@ -1,9 +1,9 @@
-import './App.scss';
-import { useState, useReducer } from 'react';
+import "./App.scss";
+import { useState, useReducer, useEffect } from "react";
+import Main from './components/Main'
+import Edit from "./components/Edit";
 import Header from "./components/Header";
-import InputArea from "./components/InputArea";
-import OpenTaskArea from "./components/OpenTaskArea";
-import FinishedTaskArea from "./components/FinishedTaskArea";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 
 function App() {
@@ -34,11 +34,33 @@ function App() {
             details: "bla bla bla",
             finalDate: "01.01.2501",
             urgency: "medium",
-            color: "white",
+            color: "grey",
             icon: "GiBurningSkull",
             done: true
         }
     ];
+
+    const colorDefault = [
+        {
+            name: "grey",
+            value: "grey"
+        },
+        {
+            name: "white",
+            value: "white"
+        },        {
+            name: "blue",
+            value: "blue"
+        },
+        {
+            name: "green",
+            value: "green"
+        },
+        {
+            name: "turquoise",
+            value: "turquoise"
+        }
+    ]
 
 
     const toDoArrayReducer = (originalArray, action) => {
@@ -61,6 +83,10 @@ function App() {
                     }
                 return item;})
                 break;
+
+            case "restore":
+                return [...action.data]
+                break;
           
             default:
                 return originalArray
@@ -68,25 +94,43 @@ function App() {
         }
     }
 
-    const [toDoArray, dispatchToDoArray] = useReducer(toDoArrayReducer ,testArray);
 
-    const addTodo = (newTask) => {
+    const [toDoArray, dispatchToDoArray] = useReducer(toDoArrayReducer, []);
+
+    useEffect(() => {
+        const restoredToDoList = localStorage.getItem("toDoArray");
+        const startToDoList = restoredToDoList ? JSON.parse(restoredToDoList) : testArray;
+        dispatchToDoArray({type: "restore", data: startToDoList})
+    }, []);
+
+
+    useEffect(() => {
+        localStorage.setItem("toDoArray", JSON.stringify(toDoArray))
+    }, [toDoArray]);
+    
+
+    const addToDo = (newTask) => {
         dispatchToDoArray({type: "add", newTask: newTask});
     };
 
 
-    const openTodos = toDoArray.filter(todo => !todo.done);
-    const doneTodos = toDoArray.filter(todo => todo.done);
+    const openToDos = toDoArray.filter(toDo => !toDo.done);
+    const doneToDos = toDoArray.filter(toDo => toDo.done);
 
 
     return (
         <div className="App">
             <Header />
-            <main>
-                <InputArea onButton={addTodo}/>
-                <OpenTaskArea currentToDos={openTodos} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>
-                <FinishedTaskArea currentToDos={doneTodos} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>
-            </main>
+            <BrowserRouter>
+
+                {/* <Main addToDo={addToDo} openToDos={openToDos} doneToDos={doneToDos} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray} /> */}
+
+                <Routes>
+                    <Route path="/index" element={<Main addToDo={addToDo} openToDos={openToDos} doneToDos={doneToDos} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray} />} />
+                    <Route path="edit" element={<Edit />} />
+                    <Route path="*" element={<Navigate replace to="/index" />} />  
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 }

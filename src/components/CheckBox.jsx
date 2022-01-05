@@ -1,15 +1,15 @@
 import "../SCSS/CheckBox.scss";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 // const CheckBox = (props) => {
-const CheckBox = ({currentToDos, toDoArray, dispatchToDoArray}) => {
+const CheckBox = ({singleToDo, toDoArray, dispatchToDoArray}) => {
 
-    let {id, done} = currentToDos;
+    let {id, done} = singleToDo;
 
     return (
         <div>
             <label className="CheckBox" >
-                <input type="checkbox" id={`checkBox${id}`} name={`checkBox${id}`} onChange={() => dispatchToDoArray({type: 'toggle', id: id, done: done})} checked={done}/>
+                <input type="checkbox" id={`checkBox${id}`} name={`checkBox${id}`} onChange={() => dispatchToDoArray({type: "toggle", id: id, done: done})} checked={done}/>
                 <span className="FakeInput"></span>
                 {/* <span>Finished</span> */}
             </label>
