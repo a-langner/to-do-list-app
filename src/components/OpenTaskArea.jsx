@@ -1,10 +1,12 @@
 import TaskEntry from "./TaskEntry";
+import { useToDoContext } from "../DataStorage";
 
-const OpenTaskArea = ({ currentToDos, toDoArray, dispatchToDoArray}) => {
-    // {console.log(props)}
+
+const OpenTaskArea = () => {
+    const { openToDos } = useToDoContext();
     return (
         <div id="OpenTaskArea">
-            {currentToDos.map((singleToDo, index) => (<TaskEntry singleToDo={singleToDo} key={index} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>))}
+            {openToDos.map((singleToDo, index) => (<TaskEntry singleToDo={singleToDo} key={index} />))}
         </div>
     );
 };

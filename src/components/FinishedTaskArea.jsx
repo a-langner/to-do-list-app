@@ -1,9 +1,12 @@
 import TaskEntry from "./TaskEntry";
+import { useToDoContext } from "../DataStorage";
 
-const FinishedTaskArea = ({ currentToDos, toDoArray, dispatchToDoArray}) => {
+
+const FinishedTaskArea = () => {
+    const { doneToDos } = useToDoContext();
     return (
         <div id="FinishedTaskArea">
-            {currentToDos.map((singleToDo, index) => (<TaskEntry singleToDo={singleToDo} key={index} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>))}
+            {doneToDos.map((singleToDo, index) => (<TaskEntry singleToDo={singleToDo} key={index} />))}
         </div>
     );
 };

@@ -3,7 +3,8 @@ import CheckBox from "./CheckBox";
 import CloseButton from "./CloseButton"
 import "../SCSS/TaskEntry.scss";
 
-function TaskEntry({singleToDo, toDoArray, dispatchToDoArray}) {
+
+function TaskEntry({singleToDo}) {
 
     return (
         <div className="TaskEntry">
@@ -13,10 +14,10 @@ function TaskEntry({singleToDo, toDoArray, dispatchToDoArray}) {
             <p className="details">{singleToDo.details}</p>
             {singleToDo.finalDate.length > 0 ? <p>Final Date: {singleToDo.finalDate}</p> : ""}
             {/* <p>Final Date: {singleToDo.finalDate}</p> */}
-            <CheckBox singleToDo={singleToDo} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>
-            <CloseButton singleToDo={singleToDo} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>
+            <CheckBox singleToDo={singleToDo} />
+            <CloseButton singleToDo={singleToDo} />
         </div>
     )
-}
+};
 
 export default TaskEntry;

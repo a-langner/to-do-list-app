@@ -1,9 +1,11 @@
 import "../SCSS/CheckBox.scss";
-import React, { useState } from "react";
+import React from "react";
+import { useToDoContext } from "../DataStorage";
 
-// const CheckBox = (props) => {
-const CheckBox = ({singleToDo, toDoArray, dispatchToDoArray}) => {
 
+const CheckBox = ({singleToDo}) => {
+
+    const { dispatchToDoArray } = useToDoContext();
     let {id, done} = singleToDo;
 
     return (

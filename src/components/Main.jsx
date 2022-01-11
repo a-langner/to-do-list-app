@@ -2,15 +2,19 @@ import React from "react";
 import InputArea from "./InputArea";
 import OpenTaskArea from "./OpenTaskArea";
 import FinishedTaskArea from "./FinishedTaskArea";
+import { useToDoContext } from "../DataStorage";
 
-function Main({ addToDo, openToDos, doneToDos, toDoArray, dispatchToDoArray }) {
+
+function Main() {
+
+    const { addToDo } = useToDoContext();
     return (
         <main>
             <InputArea onButton={addToDo}/>
-            <OpenTaskArea currentToDos={openToDos} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>
-            <FinishedTaskArea currentToDos={doneToDos} toDoArray={toDoArray} dispatchToDoArray={dispatchToDoArray}/>
+            <OpenTaskArea />
+            <FinishedTaskArea />
         </main>
     )
-}
+};
 
-export default Main
+export default Main;

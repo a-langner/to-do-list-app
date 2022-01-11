@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link, Routes, Route, Navigate } from "react-router-dom";
-import Edit from "./Edit";
+import { Link } from "react-router-dom";
+
 
 const InputArea = (props) => {
+
     // const [id, setId] = useState(props.nextId);
     const [newTask, setNewTask] = useState({id: Date.now(), name: "", details: "", finalDate: "", urgency: "low", color: "grey", icon: "", done: false});
     // const [urgencyState, setUrgencyState] = useState(newTask.urgency);
@@ -14,7 +15,6 @@ const InputArea = (props) => {
         const finalUpdate = {...newTask};
         finalUpdate.finalDate = dateFormat;
         finalUpdate.id = id;
-        // setNewTask(finalUpdate);
         props.onButton(finalUpdate);
         setNewTask({id: Date.now(), name: "", details: "", finalDate: "", urgency: "low", color: "grey", icon: "", done: false});
     };
@@ -80,7 +80,6 @@ const InputArea = (props) => {
                             <button onClick={editCategories}>Edit Color Categories</button>
                         </Link>
                     </nav>
-
                 </div>
             </form>
         </div>
