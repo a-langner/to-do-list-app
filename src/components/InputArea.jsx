@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 
 const InputArea = (props) => {
@@ -75,11 +75,11 @@ const InputArea = (props) => {
                 </div>
                 <div className="fieldWrapper">
                     <input type="submit" value="Save Task" onClick={sendData}/>
-                    <nav>
+                    {/* <nav>
                         <Link to="/edit" >
                             <button onClick={editCategories}>Edit Color Categories</button>
                         </Link>
-                    </nav>
+                    </nav> */}
                 </div>
             </form>
         </div>

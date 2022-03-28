@@ -14,6 +14,12 @@ function TaskEntry({singleToDo}) {
             <p className="details">{singleToDo.details}</p>
             {singleToDo.finalDate.length > 0 ? <p>Final Date: {singleToDo.finalDate}</p> : ""}
             {/* <p>Final Date: {singleToDo.finalDate}</p> */}
+
+
+
+
+
+            
             <CheckBox singleToDo={singleToDo} />
             <CloseButton singleToDo={singleToDo} />
         </div>
